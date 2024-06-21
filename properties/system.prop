@@ -17,7 +17,7 @@ vendor.bluetooth.soc=cherokee
 # Camera
 camera.disable_zsl_mode=true
 persist.vendor.camera.facepp.fdenable=0
-vendor.camera.aux.packagelist=com.android.camera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap,com.android.camera2
 persist.vendor.camera.privapp.list=com.android.camera
 
 # Charger
@@ -66,10 +66,6 @@ persist.backup.ntpServer="0.pool.ntp.org"
 # Netflix custom property
 ro.netflix.bsp_rev=Q855-16947-1
 
-# Perf
-ro.vendor.qti.core_ctl_max_cpu=4
-ro.vendor.qti.core_ctl_min_cpu=2
-
 # Radio
 persist.radio.dynamic_sar=false
 persist.radio.NO_STAPA=1
@@ -84,11 +80,7 @@ sys.fflag.override.settings_seamless_transfer=true
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
-# Thermal
-vendor.sys.thermal.data.path=/data/vendor/thermal/
-
 # WFD
-debug.sf.enable_hwc_vds=1
 debug.sf.auto_latch_unsignaled=0
 media.wfd.max_resolution=8
 persist.debug.wfd.enable=1
