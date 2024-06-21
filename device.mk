@@ -464,6 +464,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
 
+# Signing Rom with test keys
+include vendor/lineage-priv/keys/keys.mk
+
 # NeuralNetworks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
