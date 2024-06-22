@@ -192,9 +192,8 @@ debug.stagefright.omx_default_rank=0
 ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio/RIL
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
-#rild.libargs=-d /dev/smd0
 telephony.lteOnCdmaDevice=1
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so #rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn= 
 persist.rild.nitz_long_ons_0= 
 persist.rild.nitz_long_ons_1= 
@@ -205,6 +204,7 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2= 
 persist.rild.nitz_short_ons_3= 
 ril.subscription.types=NV,RUIM 
+ro.telephony.default_network=33,33
 ro.vendor.use_data_netmgrd=true
 persist.vendor.data.mode=concurrent
 persist.rmnet.data.enable=true
@@ -234,9 +234,6 @@ persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.procedure_bytes=SKIP
 persist.radio.multisim.config=dsds
 persist.vendor.radio.rat_on=combine
-DEVICE_PROVISIONED=1
-# Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
-ro.telephony.default_network=22,22
 
 # VoLTE / VT / WFC
 persist.dbg.volte_avail_ovr=1
