@@ -80,20 +80,19 @@ function blob_fixup() {
         vendor/lib64/camera/components/com.qti.node.watermark.so)
             $PATCHELF_TOOL --add-needed "libpiex_shim.so" "${2}"
             ;;
-        vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy)
-            echo 'madvise: 1' >> ${2}
-            ;;
-        vendor/etc/init/init.mi_thermald.rc)
-            sed -i "/seclabel u:r:mi_thermald:s0/d" "${2}"
-            ;;
         vendor/lib/libstagefright_soft_ddpdec.so | vendor/lib/libstagefright_soft_ac4dec.so | \
         vendor/lib/libstagefrightdolby.so | vendor/lib64/libstagefright_soft_ddpdec.so | \
         vendor/lib64/libdlbdsservice.so | vendor/lib64/libstagefright_soft_ac4dec.so | vendor/lib64/libstagefrightdolby.so)
-            $PATCHELF_TOOL --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        vendor/etc/dolby/dax-default.xml)
+            sed -i "/volume-leveler-enable/ s/true/false/g" "${2}"
+            ;;
+        vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy)
+            echo 'madvise: 1' >> ${2}
             ;;
     esac
 }
-
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
