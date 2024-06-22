@@ -13,6 +13,10 @@ $(call inherit-product, device/xiaomi/vayu/device.mk)
 # Inherit common AOSP configurations
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Feature Flags
+TARGET_USES_MIUI_CAMERA := true
+TARGET_CAMERA_USES_NEWER_HIDL_OVERRIDE_FORMAT := true
+
 # Matrixx
 MATRIXX_BUILD_TYPE := Unofficial
 MATRIXX_MAINTAINER := momenabdulrazekali
