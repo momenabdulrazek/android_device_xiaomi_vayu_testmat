@@ -25,9 +25,8 @@ import android.util.Log;
 
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.haptic.HapticUtils;
+import org.lineageos.settings.utils.FileUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
-import org.lineageos.settings.refreshrate.RefreshUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -36,7 +35,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        if (!intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+            return;
+        }
+        if (DEBUG)
+            Log.d(TAG, "Received boot completed intent");
         try {
             DiracUtils.getInstance(context);
         } catch (Exception e) {
@@ -44,7 +47,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
         DozeUtils.checkDozeService(context);
         ThermalUtils.startService(context);
-        HapticUtils.restoreLevel(context);
-        RefreshUtils.startService(context);
     }
 }
