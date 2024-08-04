@@ -17,8 +17,7 @@ vendor.bluetooth.soc=cherokee
 # Camera
 camera.disable_zsl_mode=true
 persist.vendor.camera.facepp.fdenable=0
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap,com.android.camera2
-persist.vendor.camera.privapp.list=com.android.camera
+persist.vendor.camera.privapp.list=org.lineageos.aperture,com.android.camera
 
 # Charger
 ro.charger.disable_init_blank=true
@@ -44,6 +43,13 @@ persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableIMSLogs=1
 persist.vendor.ims.disableQXDMLogs=1
 
+# IOP
+vendor.iop.enable_prefetch_ofr=1
+vendor.iop.enable_uxe=0
+
+# Incremental FS
+ro.incremental.enable=1
+
 # Media
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 media.stagefright.thumbnail.prefer_hw_codecs=true
@@ -66,6 +72,10 @@ persist.backup.ntpServer="0.pool.ntp.org"
 # Netflix custom property
 ro.netflix.bsp_rev=Q855-16947-1
 
+# Perf
+ro.vendor.qti.core_ctl_max_cpu=4
+ro.vendor.qti.core_ctl_min_cpu=2
+
 # Radio
 persist.radio.dynamic_sar=false
 persist.radio.NO_STAPA=1
@@ -81,7 +91,8 @@ sys.fflag.override.settings_seamless_transfer=true
 persist.vendor.sensors.enable.mag_filter=true
 
 # WFD
-debug.sf.auto_latch_unsignaled=0
+debug.sf.enable_hwc_vds=0
+debug.sf.latch_unsignaled=1
 media.wfd.max_resolution=8
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
