@@ -33,6 +33,12 @@ PRODUCT_TARGET_VNDK_VERSION := 30
 # Dynamic partitions setup
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Dolby
+$(call inherit-product-if-exists, vendor/dolby/dolby.mk)
+
+# Camera
+$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
@@ -62,6 +68,9 @@ PRODUCT_PACKAGES += \
     libspkrprot \
     libvisualizer \
     libvolumelistener
+
+PRODUCT_PACKAGES += \
+    libaudioroute.vendor
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -104,8 +113,12 @@ PRODUCT_PACKAGES += \
     libgui_vendor \
     libxml2 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
+PRODUCT_PACKAGES += \
+    libpng.vendor \
+    libutilscallstack.vendor
 
 PRODUCT_PACKAGES += \
+    libshim_megvii \
     libpiex_shim
 
 PRODUCT_COPY_FILES += \
@@ -116,6 +129,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
    libstdc++_vendor
+
+# Google Camera
+$(call inherit-product-if-exists, vendor/mgc/config.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
